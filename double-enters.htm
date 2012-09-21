@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xml:lang="nl" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head> 
+ 
+ 
+</head>
+<body> 
+ 
+ 
+
+<script type="text/javascript">
+document.getElementById('focusor').focus();	
+</script>
+
+<table width="800px">
+
+<tr>
+<td valign="top">
+<a name="focusor"></a>
+
+
+<h2>htmler</h2>
+
+<script type="text/javascript">
+function addtext() {
+ 
+    var newtext = document.myform.inputtext.value;
+
+    newtext = newtext.replace(/\n\n/g, "#ret!#");
+
+    newtext = newtext.replace(/\n/g, " ");
+
+    newtext = newtext.replace(/#ret!#/g, "\n\n");
+  
+    newtext = newtext.replace(/\ \ /g, " ");
+
+    newtext = newtext.replace(/\ \ /g, " ");
+ 
+    document.myform.outputtext.value = newtext;
+ 
+       
+}
+</script> 
+
+
+<form name="myform"> 
+<table><tr> 
+<td><textarea name="inputtext" rows="30" cols="30">Tik hier
+de tekst om
+overtollige enters
+uit te halen...
+ 
+</textarea></td> 
+<td valign="top"> 
+<input type="button" value=">>" onClick="addtext();"> 
+ 
+</td> 
+<td><textarea name="outputtext" rows="30" cols="30"></textarea></td> 
+</tr></table> 
+</form>
+
+
+
+</td>
+
+</table>
+
+</body>
+</html> 
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xml:lang="nl" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<head> 
+ 
+ 
+<title> 
+iZmataZia</title> 
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="description" content="hobbyruimte" /> 
+<meta name="keywords" content="Tekst, Foto, Curriculum Vitae" /> 
+
+
+<table width="800px">
+
+<tr>
+<td valign="top">
+<a name="focusor"></a>
+
+
+
+<h2>trimmer</h2>
+
+<script type="text/javascript">
+
+function zetnin(tekst, maxwidth)
+{
+    
+    telang = 0;
+    resultaat = "";
+    for (i = 0; i<tekst.length; i++)
+    {
+       
+
+        if (tekst[i] == "\n")
+        {
+            telang = 0;
+        }
+        else
+        {
+             telang = telang + 1;
+        }
+
+        if (telang == maxwidth)
+        {
+            if (tekst[i] == " ")
+            {
+
+                resultaat = tekst.substring(0, i+1) + "\n" + zetnin(tekst.substring(i+1), maxwidth);
+                i = tekst.length;
+                telang = 0;
+            }
+            else
+            {
+                marge = Math.round(maxwidth / 2);
+                raak = 0;
+                for (j=1; j<marge; j++)
+                {
+                    if (tekst[i-j] == " ")
+                    {
+                        resultaat = tekst.substring(0, i-j+1) + "\n" + zetnin(tekst.substring(i-j+1), maxwidth);
+                        i = tekst.length;
+                        telang = 0;
+                        j = marge;
+                        raak = 1;
+                    }
+                    
+                }
+                if (raak == 0)
+                {
+
+
+                    resultaat = tekst.substring(0, i+1) + "--" + "\n" + zetnin(tekst.substring(i+1), maxwidth);
+                    i = tekst.length;
+                    telang = 0;
+                    
+                }
+
+            }
+
+        } 
+        else
+        {
+            resultaat = tekst.substring(0, i+1);
+        }
+ 
+    }
+    return resultaat;
+
+}
+
+function addtext() {
+ 
+    var newtext = document.myform.inputtext.value;
+
+    newtext = zetnin(newtext, 80);
+
+ 
+ 
+    document.myform.outputtext.value = newtext;
+ 
+       
+}
+</script> 
+
+
+<form name="myform"> 
+<table><tr> 
+<td><textarea name="inputtext" rows="30" cols="30">Vul hier de tekst die getrimmed/ geformat moet worden naar een tekst met maximaal 80 karakters op een regel.
+ 
+</textarea></td> 
+<td valign="top"> 
+<input type="button" value=">>" onClick="addtext();"> 
+ 
+</td> 
+<td><textarea name="outputtext" rows="30" cols="30"></textarea></td> 
+</tr></table> 
+</form>
+
+
+
+</body>
+</html> 
+
+
